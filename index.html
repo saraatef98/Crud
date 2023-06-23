@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee CRUD</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <div class="cruds">
+        
+        <div class="head">
+            <h2>Employee Data</h2>
+        </div>
+
+        <div class="data">
+            <div class="Employee_data">
+                <label>Name</label>
+                <input id="name" type="text" placeholder="enter your name her">
+            </div>
+            <div class="Employee_data">
+                <label>adress</label>
+                <input id="adress" type="text" placeholder="enter your adress her">
+            </div>
+        </div>
+
+        <div class="data">
+            <div class="Employee_data">
+                <label>phone</label>
+                <input id="phone" type="number" placeholder="enter your phone her">
+            </div>
+            <div class="Employee_data">
+                <label>email</label>
+                <input id="email" type="email" placeholder="enter your email her">
+            </div>
+        </div>
+
+        <div class="data">
+            <div class="Employee_data">
+                <label>jop</label>
+                <input id="jop" type="text" placeholder="enter your jop her">
+            </div>
+            <div class="Employee_data">
+                <label>sallery</label>
+                <input id="sallery" type="number" placeholder="enter your sallery her">
+            </div>
+        </div>
+
+        <div class="creat">
+            <button id="create">Create</button>
+        </div>
+
+
+        <div>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>adders</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>jop</th>
+                    <th>sallery</th>
+                    <th>update</th>
+                    <th>delate</th>
+                </tr>
+                <tbody id="tobody">
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <script src="scrpit.js"></script>
+</body>
+</html>
