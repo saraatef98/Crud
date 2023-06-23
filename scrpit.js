@@ -1,4 +1,4 @@
-let username = document.getElementById("name");
+let username = document.getElementById("username");
 let adress = document.getElementById("adress");
 let phone = document.getElementById("phone");
 let email = document.getElementById("email");
@@ -15,11 +15,9 @@ if (localStorage.user != null) {
 } else {
   savadata = [];
 }
-//local storage
+// local storage
 
-username = ""
-
-//creat -
+// start create -
 create.onclick = function () {
   let newuser = {
     username: username.value,
@@ -29,26 +27,26 @@ create.onclick = function () {
     jop: jop.value,
     sallery: sallery.value,
   };
-
+  // create after updata
   if (mood === "create") {
     savadata.push(newuser);
   } else {
     savadata[temp] = newuser;
     mood = "create";
-    create.innerHTML = "create";
-    create.style.background = "#dfc608e9";
+    create.innerHTML = "Create";
+    create.style.backgroundColor = "#dfc608e9";
   }
-  // savadata.push(newuser)
-
-  // local storage
+  // create after updata
+  // show data in local storage
   localStorage.setItem("user", JSON.stringify(savadata));
   ClearData();
   showdata();
 };
 showdata();
-//creat
+// end create
 
-// clear inputs
+
+//start clear inputs
 function ClearData() {
   username.value = "";
   adress.value = "";
@@ -57,44 +55,42 @@ function ClearData() {
   jop.value = "";
   sallery.value = "";
 }
-// clear inputs
+// end clear inputs
 
-//reed
+// start read
 function showdata() {
   let table = "";
   if (savadata.length > 0) {
-      for (let i = 0; i < savadata.length; i++) {
-          savadata[i].username = ""
-        
+    for (let i = 0; i < savadata.length; i++) {
       table += `
-    <tr>
-        <td>${i + 1}</td>
-        <td>${savadata[i].username}</td>
-        <td>${savadata[i].adress}</td>
-        <td>${savadata[i].phone}</td>
-        <td>${savadata[i].email}</td>
-        <td>${savadata[i].jop}</td>
-        <td>${savadata[i].sallery}</td>
-        <td><button onclick="UpdataData(${i})" class="update">update</button></td>
-        <td><button onclick="deleteData(${i})" class="delete">delete</button></td>
-    </tr>
-        `;
+        <tr>
+            <td>${i + 1}</td>
+            <td>${savadata[i].username}</td>
+            <td>${savadata[i].adress}</td>
+            <td>${savadata[i].phone}</td>
+            <td>${savadata[i].email}</td>
+            <td>${savadata[i].jop}</td>
+            <td>${savadata[i].sallery}</td>
+            <td><button onclick="UpdateData(${i})" class="update">Update</button></td>
+            <td><button onclick="deleteData(${i})" class="delete">Delete</button></td>
+        </tr>
+      `;
     }
   }
   document.getElementById("tobody").innerHTML = table;
 }
-//reed
+//end read
 
-//delete
+// start delete
 function deleteData(i) {
   savadata.splice(i, 1);
   localStorage.user = JSON.stringify(savadata);
   showdata();
 }
-//delete
+//end delete
 
-//updata
-function UpdataData(i) {
+// start update
+function UpdateData(i) {
   username.value = savadata[i].username;
   adress.value = savadata[i].adress;
   phone.value = savadata[i].phone;
@@ -102,7 +98,8 @@ function UpdataData(i) {
   jop.value = savadata[i].jop;
   sallery.value = savadata[i].sallery;
   create.innerHTML = "Update";
-  create.style.background = "green";
+  create.style.backgroundColor = "green";
   mood = "update";
   temp = i;
 }
+// end update
